@@ -17,7 +17,7 @@ public class TictactoeGame {
 		System.out.println("Enter X or O");
 		Scanner myObj = new Scanner(System.in);
 		String userInput = myObj.nextLine();
-		char c=userInput.charAt(0);
+		char UserInput = userInput.charAt(0);
 	}
 
 	public static void main(String[] args) {
