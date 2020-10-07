@@ -3,7 +3,7 @@ package com.bridgelabz.tictactoegame;
 import java.util.Scanner;
 
 public class TictactoeGame {
-
+	
 	/* UC1 */
 	public static char[] createBoard() {
 		char[] board = new char[10];
@@ -35,14 +35,17 @@ public class TictactoeGame {
 
 	/* UC4 */
 	public static void enterUserInputAtDesiredLocation(char UserInput, char[] board) {
-		System.out.println("Enter Desired Location");
+		System.out.println("Enter Desired Location Between 1-9");
+
 		boolean temp = true;
 		while (temp) {
 			Scanner myObj = new Scanner(System.in);
 			String userDesiredLocation = myObj.nextLine();
-			if (board[Integer.parseInt(userDesiredLocation)] == 'X' || board[Integer.parseInt(userDesiredLocation)] == 'Y') {
+			if (Integer.parseInt(userDesiredLocation) < 1 || Integer.parseInt(userDesiredLocation) > 9) {
+				System.out.println("Enter Valid Location");
+			} else if (board[Integer.parseInt(userDesiredLocation)] == 'X'
+					|| board[Integer.parseInt(userDesiredLocation)] == 'Y') {
 				System.out.println("Position Already Occupied, Enter Another Location");
-
 			} else {
 				board[Integer.parseInt(userDesiredLocation)] = UserInput;
 				temp = false;
