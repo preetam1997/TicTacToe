@@ -13,16 +13,18 @@ public class TictactoeGame {
 	}
 
 	/* UC2 */
-	public static void chooseXorO() {
+	public static char chooseSymbol() {
 		System.out.println("Enter X or O");
 		Scanner myObj = new Scanner(System.in);
 		String userInput = myObj.nextLine();
 		char UserInput = userInput.charAt(0);
+		myObj.close();
+		return UserInput;
 	}
 
 	public static void main(String[] args) {
 		System.out.println("Welcome To TicTAcToe Game ");
 		char[] board = createBoard();
-		chooseXorO();
+		char UserInput = chooseSymbol();
 	}
 }
