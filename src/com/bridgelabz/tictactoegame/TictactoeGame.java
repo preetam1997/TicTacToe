@@ -3,7 +3,10 @@ package com.bridgelabz.tictactoegame;
 import java.util.Scanner;
 
 public class TictactoeGame {
-	
+	static Scanner myObj = new Scanner(System.in);
+	public static final int HEAD = 0;
+	public static final int TAIL = 1;
+
 	/* UC1 */
 	public static char[] createBoard() {
 		char[] board = new char[10];
@@ -16,7 +19,7 @@ public class TictactoeGame {
 	/* UC2 */
 	public static char chooseSymbol() {
 		System.out.println("Enter X or O");
-		Scanner myObj = new Scanner(System.in);
+
 		String userInput = myObj.nextLine();
 		char UserInput = userInput.toUpperCase().charAt(0);
 
@@ -33,13 +36,13 @@ public class TictactoeGame {
 				Character.toString(board[7]) + "|" + Character.toString(board[8]) + "|" + Character.toString(board[9]));
 	}
 
-	/* UC4 */
+	/* UC4 & UC5*/
 	public static void enterUserInputAtDesiredLocation(char UserInput, char[] board) {
 		System.out.println("Enter Desired Location Between 1-9");
 
 		boolean temp = true;
 		while (temp) {
-			Scanner myObj = new Scanner(System.in);
+
 			String userDesiredLocation = myObj.nextLine();
 			if (Integer.parseInt(userDesiredLocation) < 1 || Integer.parseInt(userDesiredLocation) > 9) {
 				System.out.println("Enter Valid Location");
@@ -52,6 +55,16 @@ public class TictactoeGame {
 			}
 		}
 
+	}
+	/* UC6 */
+	public static void tossFunction() {
+		double tossResult = Math.floor(Math.random()*10)%2;
+		if(tossResult==HEAD) {
+			System.out.println("Player Starts First");
+		}
+		else if(tossResult==TAIL) {
+			System.out.println("Computer Starts First");
+		}
 	}
 
 	public static void main(String[] args) {
