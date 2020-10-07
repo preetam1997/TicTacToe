@@ -1,4 +1,4 @@
-package tictactoeGame;
+package com.bridgelabz.tictactoegame;
 
 import java.util.Scanner;
 
@@ -26,9 +26,12 @@ public class TictactoeGame {
 
 	/* UC3 */
 	public static void displayBoard() {
-		System.out.println(board[1] + "|" + board[2] + "|" + board[3]);
-		System.out.println(board[4] + "|" + board[5] + "|" + board[6]);
-		System.out.println(board[7] + "|" + board[8] + "|" + board[9]);
+		System.out.println(
+				Character.toString(board[1]) + "|" + Character.toString(board[2]) + "|" + Character.toString(board[3]));
+		System.out.println(
+				Character.toString(board[4]) + "|" + Character.toString(board[5]) + "|" + Character.toString(board[6]));
+		System.out.println(
+				Character.toString(board[7]) + "|" + Character.toString(board[8]) + "|" + Character.toString(board[9]));
 	}
 
 	public static void main(String[] args) {
