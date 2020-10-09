@@ -214,5 +214,17 @@ public class Computer1 {
 				return;
 			}
 		}
+		
+		int[] corners = { 1, 3, 7, 9 };
+		int centre = 5;
+		int[] middle = { 2, 4, 6, 8 };
+		// rule for taking available corner
+		for (int position = 0; position < 4; position++) {
+			if (board[corners[position]] != userInput && board[corners[position]] != computerInput) {
+				board[corners[position]] = computerInput;
+				return;
+			}
+		}
+
 	}
 }
