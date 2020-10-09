@@ -1,18 +1,26 @@
 package com.bridgelabz.tictactoegame;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
 import java.util.Scanner;
 
 public class TictactoeGame {
 	static Scanner userInputFromConsole = new Scanner(System.in);
 	public static final int HEAD = 0;
 	public static final int TAIL = 1;
+	public static Map<String, LinkedList<Integer>> positionMap = new HashMap<>();
+	
 
 	/* UC1 */
 	public static char[] createBoard() {
 		char[] board = new char[10];
-		for (int position = 0; position < board.length; position++) {
+		LinkedList<Integer> emptyPosition = new LinkedList<>();
+		for (int position = 1; position < board.length; position++) {
 			board[position] = ' ';
+			emptyPosition.add(position);
 		}
+		positionMap.put("empty", emptyPosition);
 		return board;
 	}
 
@@ -32,6 +40,7 @@ public class TictactoeGame {
 	}
 
 	/* UC4 & UC5 */
+	@SuppressWarnings("deprecation")
 	public static void enterUserInputAtDesiredLocation(char UserInput, char[] board) {
 		System.out.println("Enter Desired Location Between 1-9");
 		boolean temp = true;
@@ -44,6 +53,8 @@ public class TictactoeGame {
 				System.out.println("Position Already Occupied, Enter Another Location");
 			} else {
 				board[Integer.parseInt(userDesiredLocation)] = UserInput;
+				positionMap.get("empty").remove(new Integer(Integer.parseInt(userDesiredLocation)));
+				
 				temp = false;
 			}
 		}
