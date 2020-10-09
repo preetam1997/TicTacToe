@@ -2,7 +2,7 @@ package com.bridgelabz.tictactoegame;
 
 import java.util.Random;
 
-public class Computer1 {
+public class Computer {
 	public static int getRandom(int[] array) {
 		int rand = new Random().nextInt(array.length);
 		return array[rand];
