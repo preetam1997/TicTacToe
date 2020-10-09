@@ -9,7 +9,7 @@ public class Computer1 {
 	}
 
 	public static void takeTurn(char[] board, char userInput, char computerInput) {
-		boolean madeMove = false;
+
 		for (int position = 1; position <= 3; position++) {
 			if (board[position] == board[position + 3] && board[position] == computerInput) {
 				if (board[position + 6] != userInput && board[position + 6] != computerInput) {
@@ -214,7 +214,7 @@ public class Computer1 {
 				return;
 			}
 		}
-		
+
 		int[] corners = { 1, 3, 7, 9 };
 		int centre = 5;
 		int[] middle = { 2, 4, 6, 8 };
@@ -225,6 +225,15 @@ public class Computer1 {
 				return;
 			}
 		}
-
+		if (board[centre] != userInput && board[centre] != computerInput) {
+			board[centre] = computerInput;
+			return;
+		}
+		for (int position = 0; position < 4; position++) {
+			if (board[middle[position]] != userInput && board[middle[position]] != computerInput) {
+				board[middle[position]] = computerInput;
+				return;
+			}
+		}
 	}
 }
